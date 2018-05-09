@@ -1,5 +1,3 @@
-<script>
-
 //question function av
 var choices = ["answerChoice", "answerChoice2", "answerChoice3", "answerChoice4"]; 
 var choice0 = document.getElementById("answerChoice1");
@@ -47,4 +45,3 @@ function nextQuestion(){
 document.getElementById 
 }
 //av end
-</script>
