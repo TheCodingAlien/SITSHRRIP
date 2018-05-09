@@ -1,0 +1,282 @@
+/**
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    contenteditable attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that are clearfixed.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/* pagination */
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+}
+
+.pagination a.active {
+    background-color: dodgerblue;
+    color: white;
+}
+
+/* pagination END */
+
+body {
+background-image: url("images/KCL.logo.JPG");
+background-position: top right;
+background-size: 9%; 	
+background-repeat: no-repeat;
+background-color: #eeeeee;
+}
+
+/* radio list bullet point styling */
+ul {
+  list-style: none;
+  }
+/* radio list end*/
+
+img {
+
+float: left;
+display: block;
+position: relative;
+max-width: 140px;
+
+}
+
+.quiz {
+width: 600px;
+height: 600px;
+margin: 0 auto;
+padding: 10px 50px 50px 50px;
+
+}
+
+h1 {
+font-family: georgia;
+color: #000000;
+font-size: 36px;
+text-align: center;
+padding: 2px 0px;
+
+}
+
+#question {
+font-family: georgia;
+font-size: 30px;
+color: #5a6772;
+padding: 0 10px;
+}
+
+.buttons {
+margin-top: 30px;
+}
+
+#btn1, #btn2, #btn3, #btn4 {
+
+width: 250px;
+font-size: 20px;
+color: #000000;
+
+border-radius: 50px;
+margin: 20px;
+padding: 10px 10px;
+text-align: center;
+align-items: center;
+}
+/*button styling*/
+
+#start, #next, #restart {
+float: none;
+width: 250px;
+font-size: 20px;
+color: #000000;
+
+border-radius: 10px;
+margin: 0 200px;
+padding: 10px 10px;
+text-align: center;
+align-items: center; 
+}
+
+.messageWrap{
+   display: inline;
+   width: 100%;
+}
+#score {
+float:right;
+color: #5A6772;
+text-align: center;
+font-size: 18px;
+padding: 0 10px;
+}
+
+#progress {
+float:left;
+color: #2b2b2b;
+font-size: 18px;
+padding: 0 10px;
+}
+
+#answer {
+float:none;
+margin:0 auto;
+font-size:20px;
+text-align:center;
+}
+/* hover function */
+#btn1:hover, #btn2:hover, #btn3:hover, #btn4:hover, #start:hover, #next:hover, #restart:hover {
+cursor: pointer;
+
+}
+
+footer {
+   display: inline-block;
+   width:100%
+
+}
+.perfect {
+    color: #28a745;
+	font-weight: bold;
+	font-size:24px;
+    text-align:center;
+}
+.high {
+    color: #007bff;
+	font-weight: bold;
+	font-size:24px;
+    text-align:center;		
+}
+.good {
+    color: #17a2b8;
+	font-weight: bold;
+	font-size:24px;
+    text-align:center;
+}
+.low {
+    color: #ffc107;
+	font-weight: bold;
+	font-size:24px;
+    text-align:center;	    
+}
+.sad {
+    color: #dc3545;
+	font-weight: bold;
+	font-size:24px;
+    text-align:center;	
+}
+.study {
+    color: #868e96;
+	font-weight: bold;
+	font-size:24px;
+    text-align:center;	
+}
+hr {
+    margin-top: 20px;
+}
+.pwrd{
+	float: right;
+	margin:15px 5px 2px 0;
+    text-decoration: none;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 700px){
+.quiz {
+width: 95%;
+max-width:450px;
+height: 90%;
+margin: 0 auto;
+padding: 0 15px;
+}
+h1 {
+width:95%;
+font-family: georgia;
+font-size: 3em;
+text-align: center;
+color: #000000;
+padding: 1px 0px;
+margin: 0 auto;
+border-radius: 10px;
+align-items: center;
+}
+#question {
+font-family: georgia;
+font-size: 2.2em;
+color: #000000;
+padding: 0 4px;
+}
+
+.buttons {
+margin-top:10px;
+}
+
+#btnl, #btn2, #btn3, #btn4{
+
+width: 90%;
+font-size: 20px;
+color: #000000;
+font-family: georgia;
+
+margin: 10px;
+padding: 10px 10px;
+text-align: center;
+align-items: center;
+}
+
+#start, #next, #restart {
+
+float: none;
+width: 85%;
+font-size: 20px;
+font-family: georgia;
+color: #000000;
+
+margin: 5px auto;;
+padding: 10px 10px;
+text-align: center;
+align-items: center;
+}
+
+
+.messageWrap{
+   display: inline-block;
+   width:95%;
+   text-align: center;
+}
+#score {
+float:none;
+width:100%;
+color: #5A6772;
+text-align: center;
+font-size: 18px;
+padding: 0;
+margin:0 auto;
+}
+
+#progress {
+float:none;
+width:100%;
+color: #2b2b2b;
+text-align: center;
+font-size: 18px;
+padding: 0 4px;
+margin:0 auto;
+}
+hr {
+    margin-top: 5px;
+}
+}
+
