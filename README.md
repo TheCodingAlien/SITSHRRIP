@@ -1,24 +1,23 @@
 # SITSHRRIP
 
 - JavaScript
-Setup Questions + options
-                + user choice
-Show a question,
-Capture users choice,
-Change question,
-Send for marking,
-Show next steps
++Setup Questions + options & user choice
++Show a question
++Capture users choice
++Change question
++Send for marking
++Show next steps
 
 -------------------------------
 
 Login/capture details
 
 -DOM
-header,
-quiz,
-pagination
++header
++quiz
++pagination
 
 
 -Server
-Marking
++Marking
 + Saving answers
