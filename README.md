@@ -1,10 +1,11 @@
 # SITSHRRIP
 
 - JavaScript
-+Setup Questions + options & user choice
-+Show a question
-+Capture users choice
-+Change question
++Setup Questions + options & user choice ✔
++Show a question ✔
++Capture users choice ✔
++Change question ✔
++Re-display users choices
 +Send for marking
 +Show next steps
 
