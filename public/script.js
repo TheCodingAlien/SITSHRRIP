@@ -1,18 +1,120 @@
 var questions = [ 
   {
-    text: "How do you open sits", // one string
-    options: ["one click" , "two click" , "three click"]  , //three strings                       // - object 1
+    text: "Which of the following options will convert the OBI_NOTE field content to a HTML output?", // one string
+    options: ["«OBI_NOTE&HTML»" , "«OBI_NOTE&H»" , "«OBI_NOTE&CONVERT.HTML&D1»"]  , //three strings                       // - object 1
     chosen: null      
   },
   {
-    text: "How do you close a screen in sits", // one string
-    options: ["click the X" , "file > quit" , "either"]  , //three strings                             //-object 2
+    text: "What is the name of the query language used to query Oracle database?", // one string
+    options: ["PLSQL" , "TSQL" , "MDX"]  , //three strings                             //-object 2
     chosen: null      
+  },
+  {
+   text: "What is the name of the screen in SITS screen in client used to reset passwords for eVision?", // one string
+    options: ["MST" , "MUA" , "USR"]  , //three strings                             //-object 3
+    chosen: null 
+  },
+  {
+   text: "What is the relationship between STU to SPR?", // one string
+    options: ["One to Many" , "Many to Many" , "One to One"]  , //three strings                             //-object 4
+    chosen: null 
+  },
+  {
+   text: "What is the front-end plugin framework provided by Tribal in order to make eVision responsive?", // one string
+    options: ["JetPack" , "Wordpress" , "BootStrap"]  , //three strings                             //-object 5
+    chosen: null 
+  },
+  {
+   text: "Which of the following is mandatory in XHTML? - Select more than one correct answer.", // one string
+    options: ["<!DOCTYPE html>" , " <html>" , "<BR>"]  , //three strings                             //-object 6
+    chosen: null 
+  },
+  {
+   text: "Which of the following is valid XML Construct?", // one string
+    options: ["<name>Julian</CloseName>" , "</name>Julian" , "<OpenName>Julian</CloseName>"]  , //three strings                             //-object 7
+    chosen: null 
+  },
+  {
+   text: "Which of the following component is used by SITS/eVision to allow prospective students to apply for courses or enquire online?", // one string
+    options: ["CAMS" , "SRS" , "IPP"]  , //three strings                             //-object 8
+    chosen: null 
+  },
+  {
+   text: "In which of the following screens within SITS would you identify if a batch job has been successfully completed? ", // one string
+    options: ["XON" , "BPC" , "DTY"]  , //three strings                             //-object 9
+    chosen: null 
+  },
+  {
+   text: "Which of the following screen in SITS will you be able to run SQL without the help of a SRL syntax?", // one string
+    options: ["SPD" , "SWB" , "SLP"]  , //three strings                             //-object 10
+    chosen: null 
+  },
+  {
+   text: "Which of the following statements are true? -Select more than one correct answer.", // one string
+    options: ["Javascript files can be published to eVision webserver using FMU in SITS client" , "Javascript can be published directly on the eVision webservers" , "CSS files can be published to eVision webservers FMU in SITS client"]  , //three strings
+  },
+  {
+   text: "From the three sets of options below which one correctly defines the framweworks available for eVision and SITS developments?", // one string
+    options: ["Task Manager, Vista, XP, POP/POD, TUP and SRL" , "Task Manager, Vista, POP/POD, TUP and SRL" , "Task Manager, Vista, PHP/POD, TUP and SRL" ]  , //three strings                             //-object 12
+    chosen: null 
+  },
+  {
+   text: "How do you perform a hard refresh on an Internet Browser?", // one string
+    options: ["Press F5" , "Press control + F5" , "Press Shift + ALT + F5"]  , //three strings                             //-object 13
+    chosen: null 
+  },
+  {
+   text: "In which of the following SITS tables an audit record is created immediately when a change is made?", // one string
+    options: ["AUD" , "AUH" , "APH"]  , //three strings                             //-object 14
+    chosen: null 
+  },
+  {
+   text: "Which is of the following is used as a style sheet transformation for a XML message?", // one string
+    options: ["XSD" , "CSS" , "XSL"]  , //three strings                             //-object 15
+    chosen: null 
+  },
+  {
+   text: "In which of the following tables are the students historic addresses held in?", // one string
+    options: ["STU" , "SAW" , "ADD"]  , //three strings                             //-object 16
+    chosen: null 
+  },
+  {
+   text: "Which one of the following statements are true??", // one string
+    options: ["It is not possible to perform multiple document upload in SITS" , "Once a document is stored in SITS it is not possible to amend its filename which cannot be amended in database" , "It is possible to amend UDF in DOC table once a DOC is uploaded"]  , //three strings                             //-object 17
+    chosen: null 
+  },
+  {
+   text: "Which task input option would you use to allow the user to select from a large data item list where they know what they want to select, rather than be propmted in runtime?", // one string
+    options: ["Dynamic Listbox" , "Multiple Select" , "Record picker"]  , //three strings                             //-object 18
+    chosen: null 
+  },
+  {
+   text: "It is possible to archive emails sent to students from SITS?", // one string
+    options: ["True" , "False"]  , //three strings                             //-object 19
+    chosen: null 
+  },
+  {
+   text: "How do you define Role groups in SITS for eVision containers?", // one string
+    options: ["CON and COP" , "RSH AND RQI" , "RGD and RGC"]  , //three strings                             //-object 20
+    chosen: null 
+  },
+  {
+   text: "Please name at least 6 tables used by a process manager", // one string
+    options: "[insert text here]" , //three strings                             //-object 21
+    chosen: null 
+  },
+   {
+   text: "What are the three functionalities provide by a StuTalk component?", // one string
+    options: "[insert text here]"  , //three strings                             //-object 22
+    chosen: null 
   }
 ];
 
 // ================================================================================================================
 
+var escape = document.createElement('textarea'); 
+
+  function escapeHTML(html) { escape.textContent = html; return escape.innerHTML; }
 
 function questionToHtml(question, index){  //2 parameters
   var html = `<h2>${question.text}</h2>`; // string literal. it puts the value 'question.text' inside there. takes 'text from config above etc'
@@ -22,6 +124,7 @@ function questionToHtml(question, index){  //2 parameters
   return html;
 }
 function optionToHtml(html, option, index){  //2 parameters // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce - accumulator is htmk, therefore had to be changed from the 3rd inline to the first - as example suggests
+  option = escapeHTML(option);
   html += `<div class="option"><input type="radio" id="choice${index}" name="choice" value=${index}><label for="choice${index}">${option}</label></div>`; // string literal. it puts the value 'question.text' inside there
 //uses the options to give us all the options in the config described above //uses the index so it separates all the bits in the page
   return html;
