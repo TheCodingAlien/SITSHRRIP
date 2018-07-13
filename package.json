@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/TheCodingAlien/SITSHRRIP#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "sqlite": "^2.9.2"
   }
 }

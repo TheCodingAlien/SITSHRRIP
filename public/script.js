@@ -10,7 +10,7 @@ var questions = [
     chosen: null      
   },
   {
-   text: "What is the name of the screen in SITS screen in client used to reset passwords for eVision?", // one string
+   text: "What is the name of the screen in SITS in client used to reset passwords for eVision?", // one string
     options: ["MST" , "MUA" , "USR"]  , //three strings                             //-object 3
     chosen: null 
   },
@@ -46,16 +46,17 @@ var questions = [
   },
   {
    text: "Which of the following screen in SITS will you be able to run SQL without the help of a SRL syntax?", // one string
-    options: ["SPD" , "SWB" , "SLP"]  , //three strings                             //-object 10
+    options: ["SPD" , "SWB" , "SLP"], //three strings                             //-object 10
     chosen: null 
   },
   {
    text: "Which of the following statements are true? -Select more than one correct answer.", // one string
-    options: ["Javascript files can be published to eVision webserver using FMU in SITS client" , "Javascript can be published directly on the eVision webservers" , "CSS files can be published to eVision webservers FMU in SITS client"]  , //three strings
+    options: ["Javascript files can be published to eVision webserver using FMU in SITS client" , "Javascript can be published directly on the eVision webservers" , "CSS files can be published to eVision webservers FMU in SITS client"], //three strings
+    chosen: null
   },
   {
    text: "From the three sets of options below which one correctly defines the framweworks available for eVision and SITS developments?", // one string
-    options: ["Task Manager, Vista, XP, POP/POD, TUP and SRL" , "Task Manager, Vista, POP/POD, TUP and SRL" , "Task Manager, Vista, PHP/POD, TUP and SRL" ]  , //three strings                             //-object 12
+    options: ["Task Manager, Vista, XP, POP/POD, TUP and SRL" , "Task Manager, Vista, POP/POD, TUP and SRL" , "Task Manager, Vista, PHP/POD, TUP and SRL"], //three strings                             //-object 12
     chosen: null 
   },
   {
@@ -79,8 +80,8 @@ var questions = [
     chosen: null 
   },
   {
-   text: "Which one of the following statements are true??", // one string
-    options: ["It is not possible to perform multiple document upload in SITS" , "Once a document is stored in SITS it is not possible to amend its filename which cannot be amended in database" , "It is possible to amend UDF in DOC table once a DOC is uploaded"]  , //three strings                             //-object 17
+   text: "Which one of the following statements are true?", // one string
+    options: ["It is not possible to perform multiple document upload in SITS" , "Once a document is stored in SITS it is not possible to amend its filename which cannot be amended in database" , "It is possible to amend UDF in DOC table once a DOC is uploaded"], //three strings                             //-object 17
     chosen: null 
   },
   {
@@ -100,12 +101,12 @@ var questions = [
   },
   {
    text: "Please name at least 6 tables used by a process manager", // one string
-    options: "[insert text here]" , //three strings                             //-object 21
+    options: ["insert text here"] , //three strings                             //-object 21
     chosen: null 
   },
    {
    text: "What are the three functionalities provide by a StuTalk component?", // one string
-    options: "[insert text here]"  , //three strings                             //-object 22
+    options: ["insert text here"]  , //three strings                             //-object 22
     chosen: null 
   }
 ];
@@ -119,13 +120,19 @@ var escape = document.createElement('textarea');
 function questionToHtml(question, index){  //2 parameters
   var html = `<h2>${question.text}</h2>`; // string literal. it puts the value 'question.text' inside there. takes 'text from config above etc'
   html += `<div data-question-index="${index}">`;
-  html += question.options.reduce(optionToHtml, ''); //
+  question.options.forEach(function(option, index) {
+    html += optionToHtml(option, index, question.chosen);
+  }); //
   html += '</div>';  
   return html;
 }
-function optionToHtml(html, option, index){  //2 parameters // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce - accumulator is htmk, therefore had to be changed from the 3rd inline to the first - as example suggests
+function optionToHtml(option, index, chosen){  //2 parameters // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce - accumulator is htmk, therefore had to be changed from the 3rd inline to the first - as example suggests
   option = escapeHTML(option);
-  html += `<div class="option"><input type="radio" id="choice${index}" name="choice" value=${index}><label for="choice${index}">${option}</label></div>`; // string literal. it puts the value 'question.text' inside there
+  var html = `<div class="option"><input type="radio" id="choice${index}" name="choice" value="${index}"`;
+  if (''+index === chosen) {
+    html += ' checked';
+  }
+  html += `><label for="choice${index}">${option}</label></div>`; // string literal. it puts the value 'question.text' inside there
 //uses the options to give us all the options in the config described above //uses the index so it separates all the bits in the page
   return html;
 }
@@ -191,12 +198,28 @@ function questionToPagination (html, question, index) {
   var humanFriendly = index+1;
   return html +   `<a href="#" data-page="${index}">${humanFriendly}</a>`;
 }
+// debugging protocol
+function isValidQuestion(question, index) {
+    var isValid = Array.isArray(question.options) &&
+        typeof(question.text) === 'string' &&
+        typeof(question.chosen) !== 'undefined';
+
+    if (!isValid) {
+      console.warn("Found invalid question at index " + index, question);
+    }
+    return isValid;
+}
+
+//re display user selection
+
 
 // ================================================================================================================
 // get quiz space
 var quizElement = document.getElementById("quiz");  // function to be called. documentgetElement calls the function from the DOM. writing functuion instead of var defines it.
 var paginationElement =  document.getElementById("pagination");
 var currentQuestion = 0;
+
+questions = questions.filter(isValidQuestion);
 
 //display HTML
 writeQuestion (currentQuestion);
