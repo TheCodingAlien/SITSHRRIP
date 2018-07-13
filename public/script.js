@@ -111,6 +111,22 @@ var questions = [
   }
 ];
 
+// Javacript for submitting test & get results button 
+function completeTestButton() {
+    $.post("http://127.0.0.1:8080/complete-test",
+    {
+      text: "",
+      options: "",
+      chosen: ""
+    },
+    function(data,completeTestResultstatus){
+      alert("Data: " + data + "\nCompleteTestResultstatus: " + completeTestResultstatus);
+    });
+  
+
+  console.log("click ok!");
+};
+
 // ================================================================================================================
 
 var escape = document.createElement('textarea'); 
