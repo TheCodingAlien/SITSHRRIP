@@ -10,7 +10,7 @@ app.use(function(req, res, next) {
     err.status = 404;
     next(err);
 
-//enable post req on server
+//enable post req on server -- #jQuery Post method()
 app.post('/complete-test', postResults); //url, fnctuion
 function postResults(req, res)  {  // 'req', res
  // do stuff
