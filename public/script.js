@@ -111,7 +111,7 @@ var questions = [
   }
 ];
 
-// Javacript for submitting test & get results button 
+// Javascript for submitting test & get results button 
 function completeTestButton() {
     $.post("http://127.0.0.1:8080/complete-test",
     {
@@ -122,7 +122,13 @@ function completeTestButton() {
     function(data,completeTestResultstatus){
       alert("Data: " + data + "\nCompleteTestResultstatus: " + completeTestResultstatus);
     });
-  
+
+
+
+  var chosen {
+
+if     
+  }
 
   console.log("click ok!");
 };
