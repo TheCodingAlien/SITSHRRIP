@@ -111,21 +111,25 @@ var questions = [
   }
 ];
 
-// Javacript for submitting test & get results button 
+// Javascript for submitting test & get results button 
 function completeTestButton() {
     $.post("http://127.0.0.1:8080/complete-test",
     {
       text: "",
       options: "",
       chosen: ""
-    },
+    }),
+
     function(data,completeTestResultstatus){
       alert("Data: " + data + "\nCompleteTestResultstatus: " + completeTestResultstatus);
-    });
-  
+    };
+
+  var chosen;
+ if (chosen = null) {
 
   console.log("click ok!");
-};
+      };
+}
 
 // ================================================================================================================
 

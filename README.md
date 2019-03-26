@@ -33,10 +33,10 @@ Login/capture details
 
 +header
 +quiz
-+pagination
++pagination 
 
 
 -Server
 
 +Marking
-+ Saving answers
++Saving answers
